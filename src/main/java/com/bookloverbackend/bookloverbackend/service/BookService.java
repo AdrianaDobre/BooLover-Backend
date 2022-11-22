@@ -1,4 +1,4 @@
-package com.bookloverbackend.bookloverbackend.security.service;
+package com.bookloverbackend.bookloverbackend.service;
 
 import com.bookloverbackend.bookloverbackend.dto.BookDTO;
 import com.bookloverbackend.bookloverbackend.mapper.BookMapper;

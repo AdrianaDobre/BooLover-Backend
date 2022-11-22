@@ -4,7 +4,7 @@ import com.bookloverbackend.bookloverbackend.exceptions.EmailUsedAlready;
 import com.bookloverbackend.bookloverbackend.exceptions.WrongCredentials;
 import com.bookloverbackend.bookloverbackend.model.AuthRequest;
 import com.bookloverbackend.bookloverbackend.model.User;
-import com.bookloverbackend.bookloverbackend.security.service.UserService;
+import com.bookloverbackend.bookloverbackend.service.UserService;
 import com.bookloverbackend.bookloverbackend.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
