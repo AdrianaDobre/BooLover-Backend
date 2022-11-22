@@ -1,4 +1,4 @@
-package com.bookloverbackend.bookloverbackend.service;
+package com.bookloverbackend.bookloverbackend.security.service;
 
 import com.bookloverbackend.bookloverbackend.exceptions.EmailUsedAlready;
 import com.bookloverbackend.bookloverbackend.model.User;

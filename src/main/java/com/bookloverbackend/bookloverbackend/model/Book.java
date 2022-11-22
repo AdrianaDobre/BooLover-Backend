@@ -27,4 +27,7 @@ public class Book {
 
     @NotNull
     private String category;
+
+    @NotNull
+    private String description;
 }
