@@ -1,7 +1,7 @@
 package com.bookloverbackend.bookloverbackend.security;
 
 import com.bookloverbackend.bookloverbackend.filter.JwtFilter;
-import com.bookloverbackend.bookloverbackend.security.service.CustomUserDetailsService;
+import com.bookloverbackend.bookloverbackend.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

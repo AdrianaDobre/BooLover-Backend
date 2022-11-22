@@ -2,7 +2,7 @@ package com.bookloverbackend.bookloverbackend.controller;
 
 import com.bookloverbackend.bookloverbackend.dto.BookDTO;
 import com.bookloverbackend.bookloverbackend.model.Book;
-import com.bookloverbackend.bookloverbackend.security.service.BookService;
+import com.bookloverbackend.bookloverbackend.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

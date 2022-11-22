@@ -1,4 +1,4 @@
-package com.bookloverbackend.bookloverbackend.security.service;
+package com.bookloverbackend.bookloverbackend.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

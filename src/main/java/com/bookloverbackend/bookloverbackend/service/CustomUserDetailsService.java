@@ -1,4 +1,4 @@
-package com.bookloverbackend.bookloverbackend.security.service;
+package com.bookloverbackend.bookloverbackend.service;
 
 import com.bookloverbackend.bookloverbackend.model.User;
 import com.bookloverbackend.bookloverbackend.repository.UserRepository;

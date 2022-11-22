@@ -1,6 +1,6 @@
 package com.bookloverbackend.bookloverbackend.filter;
 
-import com.bookloverbackend.bookloverbackend.security.service.CustomUserDetailsService;
+import com.bookloverbackend.bookloverbackend.service.CustomUserDetailsService;
 import com.bookloverbackend.bookloverbackend.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
