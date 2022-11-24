@@ -21,16 +21,15 @@ public class BookDTO {
 
     private String description;
 
-    private Double mediumReview;
+    private Double averageRating;
 
     public BookDTO(Book book, List<ReviewDTO> reviews){
-        System.out.println(1);
         this.title = book.getTitle();
         this.author = book.getAuthor();
         this.category = book.getCategory();
         this.description = book.getDescription();
         DecimalFormat df = new DecimalFormat("#.#");
-        this.mediumReview = Double.valueOf(df.format(reviews.stream().mapToDouble(ReviewDTO::getReviewRating).average().orElse(0)));
+        this.averageRating = Double.valueOf(df.format(reviews.stream().mapToDouble(ReviewDTO::getReviewRating).average().orElse(0)));
     }
 }
 

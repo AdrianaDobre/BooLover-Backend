@@ -32,7 +32,7 @@ public class BookController {
     }
 
     @GetMapping("/getAllReviewedByEmail")
-    public List<Book> getAllReviewedByEmail(Principal principal){
+    public List<BookDTO> getAllReviewedByEmail(Principal principal){
         return bookService.getAllReviewedByEmail(principal.getName());
     }
 }
