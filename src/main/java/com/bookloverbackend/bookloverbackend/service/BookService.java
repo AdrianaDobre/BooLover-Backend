@@ -33,10 +33,6 @@ public class BookService {
     }
 
     public List<BookDTO> getAllBooks(){
-        //        for (BookDTO book: books) {
-//            book.setMediumReview(
-//                    getReviewsByBook(book.getTitle()).stream().mapToDouble(Review::getReviewRating).average().orElse(0));
-//        }
         return bookRepository.findAll().stream()
                 .map(book -> {
                     return bookMapper.toBookDTO(book,reviewService.getReviewsByBook(book.getTitle()));
@@ -44,16 +40,14 @@ public class BookService {
                 .collect(Collectors.toList());
     }
 
-    public List<Book> getAllReviewedByEmail(String email){
+    public List<BookDTO> getAllReviewedByEmail(String email){
         User user = userRepository.findByEmail(email);
         List<Book> books = reviewRepository.findAllByUserId(user.getUserId()).stream()
                 .map(Review::getBookId).distinct().toList().stream()
                 .map(bookRepository::findByBookId).toList();
-//        return books.stream()
-//                .map(book -> {
-//                    return bookMapper.toBookDTO(book,getReviewsByBook(book.getTitle()));
-//                }).toList();
-////                .collect(Collectors.toList());
-        return books;
+        return books.stream()
+                .map(book -> {
+                    return bookMapper.toBookDTO(book,reviewService.getReviewsByBook(book.getTitle()));
+                }).collect(Collectors.toList());
     }
 }
