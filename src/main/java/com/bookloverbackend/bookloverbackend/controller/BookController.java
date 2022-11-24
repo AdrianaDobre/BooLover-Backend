@@ -6,6 +6,7 @@ import com.bookloverbackend.bookloverbackend.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -27,5 +28,10 @@ public class BookController {
     @GetMapping("/getAllBooks")
     public List<BookDTO> getAllBooks(){
         return bookService.getAllBooks();
+    }
+
+    @GetMapping("/getAllReviewedByEmail")
+    public List<BookDTO> getAllReviewedByEmail(Principal principal){
+        return bookService.getAllReviewedByEmail(principal.getName());
     }
 }

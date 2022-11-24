@@ -23,8 +23,6 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer reviewId;
 
-    @NotNull
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime reviewDate;
 
     @NotNull
