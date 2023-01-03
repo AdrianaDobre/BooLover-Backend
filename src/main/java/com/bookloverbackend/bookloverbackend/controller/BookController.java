@@ -27,12 +27,17 @@ public class BookController {
     }
 
     @GetMapping("/getAllBooks")
-    public List<BookDTO> getAllBooks(){
-        return bookService.getAllBooks();
+    public List<BookDTO> getAllBooks(Principal principal){
+        return bookService.getAllBooks(principal.getName());
     }
 
     @GetMapping("/getAllReviewedByEmail")
     public List<BookDTO> getAllReviewedByEmail(Principal principal){
         return bookService.getAllReviewedByEmail(principal.getName());
+    }
+
+    @GetMapping("/getBookByTitle")
+    public BookDTO getBookByTitle(@RequestParam String title, Principal principal){
+        return bookService.getBookByTitle(title, principal.getName());
     }
 }

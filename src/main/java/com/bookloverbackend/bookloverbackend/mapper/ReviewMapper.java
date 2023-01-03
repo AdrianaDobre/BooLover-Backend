@@ -8,5 +8,5 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface ReviewMapper {
-    ReviewDTO toReviewDTO(User user, Book book, Review review);
+    ReviewDTO toReviewDTO(User user, Book book, Review review, String emailUser);
 }

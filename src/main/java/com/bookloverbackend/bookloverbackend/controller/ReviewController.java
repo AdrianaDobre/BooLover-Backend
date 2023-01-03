@@ -23,13 +23,12 @@ public class ReviewController {
 
     @DeleteMapping("/deleteReview")
     public void deleteReview(@RequestBody ReviewDTO reviewDTO, Principal principal){
-        reviewDTO.setEmail(principal.getName());
-        reviewService.deleteReview(reviewDTO);
+        reviewService.deleteReview(reviewDTO,principal.getName());
     }
 
     @GetMapping("/getAllByBook")
-    public List<ReviewDTO> getReviewsByBook(@RequestParam String title){
-        return reviewService.getReviewsByBook(title);
+    public List<ReviewDTO> getReviewsByBook(@RequestParam String title, Principal principal){
+        return reviewService.getReviewsByBook(title, principal.getName());
     }
 
     @GetMapping("/getAllByEmail")
