@@ -35,7 +35,7 @@ public class ReviewService {
         return reviewRepository.save(review);
     }
 
-    public void deleteReview(ReviewDTO reviewDTO, String emailUser) {
+    public void deleteReview(ReviewDTO reviewDTO) {
         Book book = bookRepository.findByTitle(reviewDTO.getTitle());
         User user = userRepository.findByEmail(reviewDTO.getEmail());
         Review reviewFound = reviewRepository.findAllByUserId(user.getUserId()).stream()

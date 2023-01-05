@@ -22,8 +22,8 @@ public class ReviewController {
     }
 
     @DeleteMapping("/deleteReview")
-    public void deleteReview(@RequestBody ReviewDTO reviewDTO, Principal principal){
-        reviewService.deleteReview(reviewDTO,principal.getName());
+    public void deleteReview(@RequestBody ReviewDTO reviewDTO){
+        reviewService.deleteReview(reviewDTO);
     }
 
     @GetMapping("/getAllByBook")
