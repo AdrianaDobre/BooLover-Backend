@@ -34,4 +34,5 @@ public class UserController {
         }
         return jwtUtil.generateToken(authRequest.getEmail());
     }
+
 }
