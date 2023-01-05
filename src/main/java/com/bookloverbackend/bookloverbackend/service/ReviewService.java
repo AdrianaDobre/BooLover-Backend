@@ -45,11 +45,11 @@ public class ReviewService {
         reviewRepository.delete(reviewFound);
     }
 
-    public List<ReviewDTO> getReviewsByBook(String title) {
+    public List<ReviewDTO> getReviewsByBook(String title, String emailUser) {
         Book book = bookRepository.findByTitle(title);
         return reviewRepository.findAllByBookId(book.getBookId()).stream()
                 .map(review -> {
-                    return reviewMapper.toReviewDTO(userRepository.findById(review.getUserId()).get(), bookRepository.findById(review.getBookId()).get(), review);
+                    return reviewMapper.toReviewDTO(userRepository.findById(review.getUserId()).get(), bookRepository.findById(review.getBookId()).get(), review, emailUser);
                 }).collect(Collectors.toList());
     }
 
@@ -57,7 +57,7 @@ public class ReviewService {
         User user = userRepository.findByEmail(email);
         return reviewRepository.findAllByUserId(user.getUserId()).stream()
                 .map(review -> {
-                    return reviewMapper.toReviewDTO(userRepository.findById(review.getUserId()).get(), bookRepository.findById(review.getBookId()).get(), review);
+                    return reviewMapper.toReviewDTO(userRepository.findById(review.getUserId()).get(), bookRepository.findById(review.getBookId()).get(), review, email);
                 }).collect(Collectors.toList());
     }
 }

@@ -11,6 +11,7 @@ import com.bookloverbackend.bookloverbackend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,10 +33,10 @@ public class BookService {
         return bookRepository.findByBookId(bookId);
     }
 
-    public List<BookDTO> getAllBooks(){
+    public List<BookDTO> getAllBooks(String emailUser){
         return bookRepository.findAll().stream()
                 .map(book -> {
-                    return bookMapper.toBookDTO(book,reviewService.getReviewsByBook(book.getTitle()));
+                    return bookMapper.toBookDTO(book,reviewService.getReviewsByBook(book.getTitle(),emailUser), emailUser);
                 })
                 .collect(Collectors.toList());
     }
@@ -47,7 +48,11 @@ public class BookService {
                 .map(bookRepository::findByBookId).toList();
         return books.stream()
                 .map(book -> {
-                    return bookMapper.toBookDTO(book,reviewService.getReviewsByBook(book.getTitle()));
+                    return bookMapper.toBookDTO(book,reviewService.getReviewsByBook(book.getTitle(),email), email);
                 }).collect(Collectors.toList());
+    }
+
+    public BookDTO getBookByTitle(String title, String emailUser){
+        return bookMapper.toBookDTO(bookRepository.findByTitle(title),reviewService.getReviewsByBook(title,emailUser), emailUser);
     }
 }
