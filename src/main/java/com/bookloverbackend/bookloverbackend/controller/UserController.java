@@ -9,9 +9,12 @@ import com.bookloverbackend.bookloverbackend.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.security.Principal;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,6 +28,11 @@ public class UserController {
         return userService.registerUser(user);
     }
 
+    @GetMapping("/getEmail")
+    public String getEmail(Principal principal){
+        return principal.getName();
+    }
+
     @PostMapping("/auth")
     public String generateAuthToken(@RequestBody AuthRequest authRequest) throws Exception {
         try {
@@ -34,4 +42,5 @@ public class UserController {
         }
         return jwtUtil.generateToken(authRequest.getEmail());
     }
+
 }
