@@ -30,6 +30,7 @@ public class BookDTO {
         this.description = book.getDescription();
         DecimalFormat df = new DecimalFormat("#.#");
         this.averageRating = Double.valueOf(df.format(reviews.stream().mapToDouble(ReviewDTO::getReviewRating).average().orElse(0)));
+        System.out.println(this.averageRating);
     }
 }
 
