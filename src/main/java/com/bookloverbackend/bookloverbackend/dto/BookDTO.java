@@ -3,8 +3,10 @@ package com.bookloverbackend.bookloverbackend.dto;
 import com.bookloverbackend.bookloverbackend.model.Book;
 import com.bookloverbackend.bookloverbackend.model.Review;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.bytebuddy.implementation.bind.annotation.Default;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -30,7 +32,6 @@ public class BookDTO {
         this.description = book.getDescription();
         DecimalFormat df = new DecimalFormat("#.#");
         this.averageRating = Double.valueOf(df.format(reviews.stream().mapToDouble(ReviewDTO::getReviewRating).average().orElse(0)));
-        System.out.println(this.averageRating);
     }
 }
 
